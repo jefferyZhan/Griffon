@@ -3,7 +3,7 @@
 
 <div align="center">
 
-# Introduction to Griffon
+# Welcome to Griffon
 
 </div>
 
