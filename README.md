@@ -7,7 +7,7 @@
 
 </div>
 
-This is the offical repo of the paper **Griffon: Spelling out All Object Locations at Any Granuality with Large Language Model**. Griffon is a strong baseline firstly capable of localizing objects based on the free-form texts at any granularity. Surpassing previous localization-related Large Vision Language Models, Griffon can handle all localization scenarios in real world for daily usage. This is the first version of Griffon. We will upgrade Griffon continously, equipping it with more precise capabilities in the localization and other instance-level tasks, e.g. Referring Comprehension Segmentation and Instance Segmentation. Also, corresponding datasets will be improved too.
+This is the offical repo of the paper **Griffon: Spelling out All Object Locations at Any Granuality with Large Language Model**. Griffon is a strong baseline firstly capable of localizing objects based on the free-form texts at any granularity. Surpassing previous localization-related Large Vision Language Models, Griffon can handle all localization scenarios in real world for daily usage. This is the first version of Griffon. We will upgrade Griffon continously, equipping it with more precise capabilities in the localization and other instance-level tasks, e.g. Referring Comprehension Segmentation and Instance Segmentation. Also, corresponding datasets will be improved too. Welcome to follow this repo.
 
 ## TODO List
 - [x] Paper has been released in [`📕Arxiv`]().
@@ -15,6 +15,7 @@ This is the offical repo of the paper **Griffon: Spelling out All Object Locatio
 - [ ] Release the online demo.
 - [ ] Release the inference code and model.
 - [ ] Integrate the segmentation function.
+- [ ] Improve performance continously...
 
 ## Demo
 
