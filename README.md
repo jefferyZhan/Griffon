@@ -13,7 +13,7 @@ This is the offical repo of the paper **Griffon: Spelling out All Object Locatio
 
 
 ## TODO List
-- [x] Paper has been released in [`📕Arxiv`]().
+- [x] Paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2311.14552).
 - [ ] Release the Language-prompted Detection Dataset.
 - [ ] Release the online demo.
 - [ ] Release the inference code and model.
