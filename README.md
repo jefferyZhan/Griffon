@@ -1,4 +1,3 @@
-<!-- # 🦖 DETVAVA -->
 ![](./logo.jpg)
 
 <div align="center">
@@ -15,7 +14,6 @@ Griffon can perform localization with free-form text inputs. The command may dir
 
 ## Performance
 
-<<<<<<< HEAD
 ### REC
 | Type        | Model            | RefCOCO val | RefCOCO test-A | RefCOCO test-B | RefCOCO+ val | RefCOCO+ test-A | RefCOCO+ test-B | RefCOCOg val | RefCOCOg test |
 |-------------|------------------|-------------|----------------|----------------|--------------|-----------------|-----------------|--------------|---------------|
@@ -99,34 +97,15 @@ bash demo/demo.sh demo/nvn.jpg "Examine the image for any objects from the categ
 # One Categories with Multi Objects
 bash demo/demo.sh demo/1vn.jpg "In this picture, identify and locate all the people in the front."
 ```
-=======
-## TODO List
-- [x] Paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2311.14552).
-- [ ] Release the Language-prompted Detection Dataset.
-- [ ] Release the online demo.
-- [ ] Release the inference code and model.
-- [ ] Integrate the segmentation function.
-- [ ] Improve performance continously...
-
-## Demo
->>>>>>> dfc83ff023a882040682211a0515092776682b2a
 
 ## Acknowledgement
 
 - [LLaVA](https://github.com/haotian-liu/LLaVA/tree/main) provides the base codes and pre-trained models.
-<<<<<<< HEAD
 - [Shikra](https://github.com/shikras/shikra) provides the insight of how to organize datasets and some base processed annotations.
-=======
-- [Shikra](https://github.com/shikras/shikra) provides the insight of how to organize datasets.
->>>>>>> dfc83ff023a882040682211a0515092776682b2a
 - [Llama](https://github.com/facebookresearch/llama) provides the large language model.
 
 ## License
 
-<<<<<<< HEAD
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/DATA_LICENSE)
 The data and checkpoint is licensed for research use only. All of them are also restricted to uses that follow the license agreement of LLaVA, LLaMA and GPT-4. The dataset is CC BY NC 4.0 (allowing only non-commercial use) and models trained using the dataset should not be used outside of research purposes.
-=======
-The model is licensed under the [Apache 2.0 license](LICENSE).
->>>>>>> dfc83ff023a882040682211a0515092776682b2a
