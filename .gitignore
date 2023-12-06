@@ -41,7 +41,6 @@ ckpts*
 datasets/*
 llava/train/*
 llava/serve/*
-llava/datasets/*
 images
 debug_output
 log_output
