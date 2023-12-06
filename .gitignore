@@ -1,0 +1,54 @@
+# Python
+__pycache__
+*.pyc
+*.egg-info
+dist
+
+# Log
+./*.log
+./*.log.*
+./*.json
+./*.jsonl
+./*.out
+
+# Data
+!**/alpaca-data-conversation.json
+
+# Editor
+.idea
+*.swp
+
+
+# Other
+.DS_Store
+wandb
+output
+
+checkpoints/*
+ckpts*
+
+.ipynb_checkpoints
+*.ipynb
+
+*.whl
+*.pth
+*.jsonl
+*.png
+*.txt
+*.pdf
+
+#data
+datasets/*
+llava/train/*
+llava/serve/*
+llava/datasets/*
+images
+debug_output
+log_output
+eval_output
+playground
+docs
+test_images
+scripts
+tools_
+llava.egg-info
