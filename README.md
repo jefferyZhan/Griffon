@@ -87,7 +87,7 @@ cp tools/preprocessor_config.json checkpoints/clip-vit-large-patch14-448/
 cp tools/config.json checkpoints/clip-vit-large-patch14-448/
 ```
 
-Inference with command. Due to the distribution of different category and different scenario data at this stage, we **encourage to try different format inputs or add some customed process aftering acquiring the results for desired output.**. We are working now to further increase the scenario diversity and category diversity. A more flexible and general model will be soon released as the next version after the internal evaluation.
+Inference with command. Due to the distribution of different category and different scenario data at this stage, we **encourage to try different format inputs for desired output**. We are working now to further increase the scenario diversity and category diversity. A more flexible and general model will be soon released as the next version after the internal evaluation.
 ```shell
 bash demo/demo.sh IMAGE_PATH COMMAND
 # Localize Single Referent
