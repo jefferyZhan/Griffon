@@ -103,9 +103,11 @@ bash demo/demo.sh demo/1vn.jpg "In this picture, identify and locate all the peo
 - [LLaVA](https://github.com/haotian-liu/LLaVA/tree/main) provides the base codes and pre-trained models.
 - [Shikra](https://github.com/shikras/shikra) provides the insight of how to organize datasets and some base processed annotations.
 - [Llama](https://github.com/facebookresearch/llama) provides the large language model.
+- [volgachen](https://github.com/volgachen/Awesome-AI-Environment) provides the basic environment setting config.
 
 ## License
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/DATA_LICENSE)
+
 The data and checkpoint is licensed for research use only. All of them are also restricted to uses that follow the license agreement of LLaVA, LLaMA and GPT-4. The dataset is CC BY NC 4.0 (allowing only non-commercial use) and models trained using the dataset should not be used outside of research purposes.
