@@ -93,6 +93,7 @@ cp tools/config.json checkpoints/clip-vit-large-patch14-448/
 
 Inference with command. Due to the distribution of different category and different scenario data at this stage, we **encourage to try different format inputs for desired output**. We are working now to further increase the scenario diversity and category diversity. A more flexible and general model will be soon released as the next version after the internal evaluation.
 ```shell
+# replace the checkpoint name in the demo/demo.sh, the checkpoint should be renamed with "llava" inserted to be correctly loaded.
 bash demo/demo.sh IMAGE_PATH COMMAND
 # Localize Single Referent
 bash demo/demo.sh demo/1v1.jpg "Is there a motorcycle on the far left of the photo?"
