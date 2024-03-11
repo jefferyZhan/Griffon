@@ -9,14 +9,15 @@
 This is the offical repo of the paper **Griffon: Spelling out All Object Locations at Any Granuality with Large Language Model**. Griffon is a strong baseline firstly capable of localizing objects based on the free-form texts at any granularity. Surpassing previous localization-related Large Vision Language Models, Griffon can handle all localization scenarios in real world for daily usage. This is the first version of Griffon. We will upgrade Griffon continously, equipping it with more precise capabilities in the localization and other instance-level tasks, e.g. Referring Comprehension Segmentation and Instance Segmentation. Also, corresponding datasets will be improved too. Welcome to follow this repo.
 
 ## News
+- [x] **`2024.03.11`** 🔥We are excited to announce the arrival of Griffon v2. Griffion v2 brings fine-grained perception performance to new heights with expert-level detection and counting, and supports visual-language co-referring. Take a look at our demo first. Paper, codes, demos and models will be released soon.
 - [x] **`2023.12.13`** 🔥Ready to release the Language-prompted Localization Dataset after final approval in [`🤗HuggingFace`](https://huggingface.co/datasets/JefferyZhan/Language-prompted-Localization-Dataset).
 - [x] **`2023.12.06`** 🔥Release the inference code and model in [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/Griffon/tree/main).
 - [x] **`2023.11.29`** 🔥Paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2311.14552).
 
 
-## What can Griffon do now?
-Griffon can perform localization with free-form text inputs. The command may direct to a single referent, a group of objects represented by a category name or a phase, and plenty of categories. Also, if you are not sure whether an instance appear in the image, Griffon can help. We provide some demo images to show how to use Griffon, and more demos can be found in our paper.
-![](./demo.jpg)
+## What can Griffon v2 do now?
+Griffon v2 can perform localization with free-form text inputs and visual target inputs with locally cropped images now, supporting the tasks shown as below.
+![](./demov2.jpg)
 
 ## Performance
 
