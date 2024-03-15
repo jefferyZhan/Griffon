@@ -1,4 +1,4 @@
-![](./fig/logo.jpg)
+![](./logo.jpg)
 
 <div align="center">
 
@@ -7,6 +7,8 @@
 </div>
 
 This is the offical repo of Griffon series (v1 & v2). Griffon is the first high-resolution (over 1K) LVLM capable of localizing everything you are interested in describing the region you specify. In the latest version, Griffon support visual-language co-referring. You can input an image or some descriptions. Griffon achieves excellent performance in REC, object detection, object counting, visual/phrase grounding and REG.
+
+---
 
 Griffon: Spelling out All Object Locations at Any Granuality with Large Language Model
 
