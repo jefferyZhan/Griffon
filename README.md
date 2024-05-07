@@ -37,6 +37,28 @@ Griffon v2 can perform localization with free-form text inputs and visual target
 - [Llama](https://github.com/facebookresearch/llama) provides the large language model.
 - [volgachen](https://github.com/volgachen/Awesome-AI-Environment) provides the basic environment setting config.
 
+## Citation
+If you find Griffon useful for your research and applications, please cite using this BibTeX:
+```bibtex
+@misc{zhan2023griffon,
+      title={Griffon: Spelling out All Object Locations at Any Granularity with Large Language Models}, 
+      author={Yufei Zhan and Yousong Zhu and Zhiyang Chen and Fan Yang and Ming Tang and Jinqiao Wang},
+      year={2023},
+      eprint={2311.14552},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+
+@misc{zhan2024griffon,
+      title={Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Visual-Language Co-Referring}, 
+      author={Yufei Zhan and Yousong Zhu and Hongyin Zhao and Fan Yang and Ming Tang and Jinqiao Wang},
+      year={2024},
+      eprint={2403.09333},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
 ## License
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
