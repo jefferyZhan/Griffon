@@ -5,6 +5,8 @@ import logging
 import torch.nn.functional as F
 import argparse
 import copy
+import shutil
+import os
 
 from itertools import repeat
 
@@ -62,10 +64,17 @@ if __name__ == "__main__":
     parser.add_argument("--model-path", type=str, default="facebook/opt-350m")
     parser.add_argument("--new-size", type=int, default=224)
     parser.add_argument("--patch-size", type=int, default=14)
-    parser.add_argument("--save-path", type=str, required=True)
+    # parser.add_argument("--save-path", type=str, required=True)
     args = parser.parse_args()
-
-    state_dict = copy.deepcopy(torch.load(args.model_path, map_location="cpu"))
+    if args.model_path.endswith("/"):
+        target_path = args.model_path[:-1] + f"_to_{args.new_size}"
+    else:
+        target_path = args.model_path + f"_to_{args.new_size}"
+    # os.mkdir(target_path)
+    shutil.copytree(args.model_path, target_path)
+    target_model_path = os.path.join(target_path, "pytorch_model.bin")
+    os.remove(target_model_path)
+    state_dict = copy.deepcopy(torch.load(os.path.join(args.model_path, "pytorch_model.bin"), map_location="cpu"))
     state_dict = resize_pos_embed(state_dict, args.new_size, args.patch_size)
-    torch.save(state_dict, args.save_path)
-    
+    torch.save(state_dict, target_model_path)
+    print("Finish updating the position embedding. Please modify the .json file according to your customization and the guideline.")
