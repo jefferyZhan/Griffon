@@ -20,7 +20,7 @@ Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Vis
 [`📕Paper`](https://arxiv.org/abs/2403.09333) 
 
 ## News
-- [x] **`2023.03.15`** 🔥Griffon v2's paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2403.09333).
+- [x] **`2024.03.15`** 🔥Griffon v2's paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2403.09333).
 - [x] **`2024.03.11`** 🔥We are excited to announce the arrival of Griffon v2. Griffion v2 brings fine-grained perception performance to new heights with high-resolution expert-level detection and counting, and supports visual-language co-referring. Take a look at our demo first. Paper, codes, demos and models will be released soon.
 - [x] **`2023.12.13`** 🔥Ready to release the Language-prompted Localization Dataset after final approval in [`🤗HuggingFace`](https://huggingface.co/datasets/JefferyZhan/Language-prompted-Localization-Dataset).
 - [x] **`2023.12.06`** 🔥Release the inference code and model in [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/Griffon/tree/main).
