@@ -6,7 +6,7 @@
 
 </div>
 
-This is the offical repo of Griffon series (v1 & v2). Griffon is the first high-resolution (over 1K) LVLM capable of localizing everything you are interested in describing the region you specify. In the latest version, Griffon support visual-language co-referring. You can input an image or some descriptions. Griffon achieves excellent performance in REC, object detection, object counting, visual/phrase grounding and REG.
+This is the official repo of the Griffon series (v1 & v2). Griffon is the first high-resolution (over 1K) LVLM capable of localizing everything you are interested in describing the region you specify. In the latest version, Griffon supports visual-language co-referring. You can input an image or some descriptions. Griffon achieves excellent performance in REC, object detection, object counting, visual/phrase grounding, and REG.
 
 ---
 
@@ -19,10 +19,14 @@ Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Vis
 
 [`📕Paper`](https://arxiv.org/abs/2403.09333) 
 
+Griffon-G with More General, More Tasks, and Better Performance!
+
+**Coming in a few days!** 
+
 ## News
 - [x] **`2024.07.01`** 🔥**Griffon has been accepted to ECCV 2024.**
 - [x] **`2024.03.15`** 🔥Griffon v2's paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2403.09333).
-- [x] **`2024.03.11`** 🔥We are excited to announce the arrival of Griffon v2. Griffion v2 brings fine-grained perception performance to new heights with high-resolution expert-level detection and counting, and supports visual-language co-referring. Take a look at our demo first. Paper, codes, demos, and models will be released soon.
+- [x] **`2024.03.11`** 🔥We are excited to announce the arrival of Griffon v2. Griffion v2 brings fine-grained perception performance to new heights with high-resolution expert-level detection and counting and supports visual-language co-referring. Take a look at our demo first. Paper, codes, demos, and models will be released soon.
 - [x] **`2023.12.13`** 🔥Ready to release the Language-prompted Localization Dataset after final approval in [`🤗HuggingFace`](https://huggingface.co/datasets/JefferyZhan/Language-prompted-Localization-Dataset).
 - [x] **`2023.12.06`** 🔥Release the inference code and model in [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/Griffon/tree/main).
 - [x] **`2023.11.29`** 🔥Paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2311.14552).
@@ -34,7 +38,7 @@ Griffon v2 can perform localization with free-form text inputs and visual target
 ## Acknowledgement
 
 - [LLaVA](https://github.com/haotian-liu/LLaVA/tree/main) provides the base codes and pre-trained models.
-- [Shikra](https://github.com/shikras/shikra) provides the insight of how to organize datasets and some base processed annotations.
+- [Shikra](https://github.com/shikras/shikra) provides insight of how to organize datasets and some base processed annotations.
 - [Llama](https://github.com/facebookresearch/llama) provides the large language model.
 - [volgachen](https://github.com/volgachen/Awesome-AI-Environment) provides the basic environment setting config.
 
