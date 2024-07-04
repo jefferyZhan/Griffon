@@ -28,7 +28,7 @@ Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Vis
 - [x] **`2023.11.29`** 🔥Paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2311.14552).
 
 ## What can Griffon do now?
-Griffon v2 can perform localization with free-form text inputs and visual target inputs with locally cropped images now, supporting the tasks shown as below.
+Griffon v2 can perform localization with free-form text inputs and visual target inputs with locally cropped images now, supporting the tasks shown below. **More quantitative evaluation results can be found in our paper.**
 ![](./demov2.jpg)
 
 ## Acknowledgement
