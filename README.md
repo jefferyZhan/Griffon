@@ -20,7 +20,8 @@ Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Vis
 [`📕Paper`](https://arxiv.org/abs/2403.09333) 
 
 Griffon-G: Bridging Vision-Language and Vision-Centric Tasks via Large Multimodal Models
-[`📕Paper`](https://arxiv.org/abs/2410.16163) [`🤗Model`](https://huggingface.co/JefferyZhan/Griffon/tree/main)
+
+[`📕Paper`](https://arxiv.org/abs/2410.16163) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794)
 
 **Release Griffon-G in the next two weeks!** 
 
