@@ -19,9 +19,10 @@ Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Vis
 
 [`📕Paper`](https://arxiv.org/abs/2403.09333) 
 
-Griffon-G with More General, More Tasks, and Better Performance!
+Griffon-G: Bridging Vision-Language and Vision-Centric Tasks via Large Multimodal Models
+[`📕Paper`](https://arxiv.org/abs/2410.16163) [`🤗Model`](https://huggingface.co/JefferyZhan/Griffon/tree/main)
 
-**Coming in a few days!** 
+**Release Griffon-G in the next two weeks!** 
 
 ## News
 - [x] **`2024.07.01`** 🔥**Griffon has been accepted to ECCV 2024.**
@@ -45,22 +46,29 @@ Griffon v2 can perform localization with free-form text inputs and visual target
 ## Citation
 If you find Griffon useful for your research and applications, please cite using this BibTeX:
 ```bibtex
-@misc{zhan2023griffon,
-      title={Griffon: Spelling out All Object Locations at Any Granularity with Large Language Models}, 
-      author={Yufei Zhan and Yousong Zhu and Zhiyang Chen and Fan Yang and Ming Tang and Jinqiao Wang},
-      year={2023},
-      eprint={2311.14552},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{zhan2025griffonv1,
+  title={Griffon: Spelling out all object locations at any granularity with large language models},
+  author={Zhan, Yufei and Zhu, Yousong and Chen, Zhiyang and Yang, Fan and Tang, Ming and Wang, Jinqiao},
+  booktitle={European Conference on Computer Vision},
+  pages={405--422},
+  year={2025},
+  organization={Springer}
 }
 
-@misc{zhan2024griffon,
+@misc{zhan2024griffonv2,
       title={Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Visual-Language Co-Referring}, 
       author={Yufei Zhan and Yousong Zhu and Hongyin Zhao and Fan Yang and Ming Tang and Jinqiao Wang},
       year={2024},
       eprint={2403.09333},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
+}
+
+@article{zhan2024griffon-G,
+  title={Griffon-G: Bridging Vision-Language and Vision-Centric Tasks via Large Multimodal Models},
+  author={Zhan, Yufei and Zhao, Hongyin and Zhu, Yousong and Yang, Fan and Tang, Ming and Wang, Jinqiao},
+  journal={arXiv preprint arXiv:2410.16163},
+  year={2024}
 }
 ```
 
