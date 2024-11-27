@@ -50,4 +50,5 @@ docs
 test_images
 scripts
 tools_
+tools
 llava.egg-info
