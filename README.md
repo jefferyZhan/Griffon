@@ -56,6 +56,7 @@ Tips: If you encounter any errors while installing the packages, you can always 
 | clip-vit-large-path14-336_to_1022   | [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/clip-vit-large-path14-336_to_1022/tree/main)    |
 
 #### 3.Inference
+---
 ```shell
 # 3.1 Modify the instruction in the run_inference.sh.
 
