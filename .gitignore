@@ -38,6 +38,7 @@ ckpts*
 *.pdf
 
 #data
+exact_match
 datasets/*
 llava/train/*
 llava/serve/*
