@@ -37,8 +37,8 @@ Griffon-G demonstrates advanced performance across multimodal benchmarks, genera
 
 ## Get Started
 
-#### 1.Clone & Install
----
+### 1.Clone & Install
+
 ```shell
 git clone git@github.com:jefferyZhan/Griffon.git
 cd Griffon
@@ -46,17 +46,20 @@ pip install -e .
 ```
 Tips: If you encounter any errors while installing the packages, you can always download the corresponding source files (*.whl), which have been verified by us.
 
-#### 2.Download the Griffon and CLIP models to the checkpoints folder.
 ---
+
+### 2.Download the Griffon and CLIP models to the checkpoints folder.
+
 | Model                                | Links                                  |
 |---------                            |---------------------------------------|
 | Griffon-G-9B                        | [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/Griffon-G-gemma2-9B)    |
 | Griffon-G-27B                        | [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/Griffon-G-gemma2-27B/tree/main)    |
 | clip-vit-large-path14               | [`🤗HuggingFace`](https://huggingface.co/openai/clip-vit-large-patch14)    |
 | clip-vit-large-path14-336_to_1022   | [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/clip-vit-large-path14-336_to_1022/tree/main)    |
-
-#### 3.Inference
 ---
+
+### 3.Inference
+
 ```shell
 # 3.1 Modify the instruction in the run_inference.sh.
 
@@ -68,15 +71,17 @@ bash run_inference.sh [CUDA_ID] [CHECKPOINTS_PATH] [IMAGE_PATH,PROMPT_PATH]
 ```
 Notice: Please pay attention to the singular and plural expressions of objects.
 
-#### 4.Evaluation
+
+### 4.Evaluation
 
 **4.1 Multimodal Benchmark Evaluation**
 
 Please Refer to LLaVA Evaluation or Use VLMEvalKit.
 
+
 **4.2 COCO Detection Evaluation**
 
----
+
 ```shell
 # Single Node
 torchrun --nproc_per_node 8 --nnodes 1 --node_rank 0 --master_addr 127.0.0.1 --master_port 12457 -m griffon.eval.eval_detection --model-path PATH/TO/MODEL --image-folder PATH/TO/coco2017/val2017 --dataset PATH/TO/instances_val2017.json
@@ -88,11 +93,11 @@ torchrun --nproc_per_node 8 --nnodes N --node_rank 0 --master_addr MASTER_ADDR -
 torchrun --nproc_per_node 8 --nnodes N --node_rank K --master_addr MASTER_ADDR --master_port MASTER_PORT -m griffon.eval.eval_detection --model-path PATH/TO/MODEL --image-folder PATH/TO/coco2017/val2017 --dataset PATH/TO/instances_val2017.json --init tcp://MASTER_ADDR:MASTER_PORT
 ```
 
+
 **4.3 REC Evaluation**
 
 Processed RefCOCO annotation set can be downloaded from this [link](https://drive.google.com/file/d/1Yh1l-f-rLSWkAlXUkZiHmK7oUC9NCmGl/view?usp=sharing).
 
----
 ```shell
 # Single Node
 torchrun --nproc_per_node 8 --nnodes 1 --node_rank 0 --master_addr 127.0.0.1 --master_port 12457 -m griffon.eval.eval_rec --model-path PATH/TO/MODEL --image-folder PATH/TO/COCO/train2014 --dataset PATH/TO/REF_COCO_ANN
