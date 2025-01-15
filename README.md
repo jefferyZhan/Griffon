@@ -71,7 +71,7 @@ bash run_inference.sh [CUDA_ID] [CHECKPOINTS_PATH] [IMAGE_PATH,PROMPT_PATH]
 ```
 Notice: Please pay attention to the singular and plural expressions of objects.
 
-
+---
 ### 4.Evaluation
 
 **4.1 Multimodal Benchmark Evaluation**
