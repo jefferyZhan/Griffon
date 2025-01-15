@@ -24,6 +24,7 @@ Griffon: Spelling out All Object Locations at Any Granuality with Large Language
 
 
 ## Release
+- [x] **`2025.01.15`** 🔥Release the evaluation scripts supporting distributed inference.
 - [x] **`2024.11.26`** 🔥We are glad to release inference code and the model of Griffon-G in [`🤗Griffon-G`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794). Training codes will be released later.
 - [x] **`2024.07.01`** 🔥**Griffon has been accepted to ECCV 2024. Data is released in [`🤗HuggingFace`](https://huggingface.co/datasets/JefferyZhan/Language-prompted-Localization-Dataset)**
 - [x] **`2024.03.11`** 🔥We are excited to announce the arrival of Griffon v2. Griffion v2 brings fine-grained perception performance to new heights with high-resolution expert-level detection and counting and supports visual-language co-referring. Take a look at our demo first. Paper is preprinted in [`📕Arxiv`](https://arxiv.org/abs/2403.09333).
