@@ -307,3 +307,37 @@ def merge_strings(strings):
     
     merged_strings = [prefix + '-' + suffix for prefix, suffix in merged_dict.items()]
     return merged_strings
+
+def accum_probs(output_ids, output_scores, start_token=200348, end_token=50648):
+    probs = []
+    start_idx = 0
+    end_idx = 0
+    
+    loc_start_idx = 0
+    loc_end_idx = 0
+    loc_probs = []
+
+    output_ids = output_ids.squeeze(0)
+    for idx, token in enumerate(output_ids):
+        if token == start_token:
+            start_idx = idx + 1
+            loc_end_idx = idx -1
+            temp = output_scores[loc_start_idx:loc_end_idx].max(dim=-1)[0]
+            loc_prob = torch.prod(temp)
+            loc_probs.append(loc_prob.item())
+        elif token == end_token:
+            end_idx = idx
+            loc_start_idx = idx + 1
+            prob = torch.prod(output_scores[start_idx:end_idx].max(dim=-1)[0])
+            probs.append(prob.item())
+        elif idx == len(output_ids)-1:
+            loc_end_idx = idx
+            loc_prob = torch.prod(output_scores[loc_start_idx:loc_end_idx].max(dim=-1)[0])
+            loc_probs.append(loc_prob.item())
+
+    if len(loc_probs) == len(probs):
+        probs_out = torch.tensor(loc_probs) ** 0.5 * torch.tensor(probs)**0.5
+    else:
+        min_shape = min(len(loc_probs), len(probs))
+        probs_out = torch.tensor(loc_probs[:min_shape]) ** 0.5 * torch.tensor(probs[:min_shape])**0.5
+    return probs_out.numpy().tolist()

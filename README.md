@@ -68,6 +68,42 @@ bash run_inference.sh [CUDA_ID] [CHECKPOINTS_PATH] [IMAGE_PATH,PROMPT_PATH]
 ```
 Notice: Please pay attention to the singular and plural expressions of objects.
 
+#### 4.Evaluation
+
+**4.1 Multimodal Benchmark Evaluation**
+
+Please Refer to LLaVA Evaluation or Use VLMEvalKit.
+
+**4.2 COCO Detection Evaluation**
+
+---
+```shell
+# Single Node
+torchrun --nproc_per_node 8 --nnodes 1 --node_rank 0 --master_addr 127.0.0.1 --master_port 12457 -m griffon.eval.eval_detection --model-path PATH/TO/MODEL --image-folder PATH/TO/coco2017/val2017 --dataset PATH/TO/instances_val2017.json
+
+# Multiple Node
+## NODE 0
+torchrun --nproc_per_node 8 --nnodes N --node_rank 0 --master_addr MASTER_ADDR --master_port MASTER_PORT -m griffon.eval.eval_detection --model-path PATH/TO/MODEL --image-folder PATH/TO/coco2017/val2017 --dataset PATH/TO/instances_val2017.json --init tcp://MASTER_ADDR:MASTER_PORT
+## NODE K(1 to N-1)
+torchrun --nproc_per_node 8 --nnodes N --node_rank K --master_addr MASTER_ADDR --master_port MASTER_PORT -m griffon.eval.eval_detection --model-path PATH/TO/MODEL --image-folder PATH/TO/coco2017/val2017 --dataset PATH/TO/instances_val2017.json --init tcp://MASTER_ADDR:MASTER_PORT
+```
+
+**4.3 REC Evaluation**
+
+Processed RefCOCO annotation set can be downloaded from this [link](https://drive.google.com/file/d/1Yh1l-f-rLSWkAlXUkZiHmK7oUC9NCmGl/view?usp=sharing).
+
+---
+```shell
+# Single Node
+torchrun --nproc_per_node 8 --nnodes 1 --node_rank 0 --master_addr 127.0.0.1 --master_port 12457 -m griffon.eval.eval_rec --model-path PATH/TO/MODEL --image-folder PATH/TO/COCO/train2014 --dataset PATH/TO/REF_COCO_ANN
+
+# Multiple Node
+## NODE 0
+torchrun --nproc_per_node 8 --nnodes N --node_rank 0 --master_addr MASTER_ADDR --master_port MASTER_PORT -m griffon.eval.eval_detection --model-path PATH/TO/MODEL --image-folder PATH/TO/COCO/train2014 --dataset PATH/TO/REF_COCO_ANN --init tcp://MASTER_ADDR:MASTER_PORT
+## NODE K(1 to N-1)
+torchrun --nproc_per_node 8 --nnodes N --node_rank K --master_addr MASTER_ADDR --master_port MASTER_PORT -m griffon.eval.eval_detection --model-path PATH/TO/MODEL --image-folder PATH/TO/COCO/train2014 --dataset PATH/TO/REF_COCO_ANN --init tcp://MASTER_ADDR:MASTER_PORT
+```
+
 ## Acknowledgement
 
 - [LLaVA](https://github.com/haotian-liu/LLaVA/tree/main) provides the base codes and pre-trained models.

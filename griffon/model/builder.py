@@ -43,7 +43,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
         kwargs['torch_dtype'] = torch_dtype
 
 
-    auto_rank0_print(f"Loaded LLaVA model: {model_path}")
+    auto_rank0_print(f"Loaded Griffon model: {model_path}")
     if "griffon" in model_name.lower():
         if "gemma" in model_name.lower():
             tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
