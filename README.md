@@ -6,13 +6,16 @@
 
 </div>
 
-This is the official repository for the Griffon series (v1, v2, and G). Griffon is the first high-resolution (over 1K) LVLM capable of performing fine-grained visual perception tasks, such as object detection and counting. In its latest version, Griffon integrates vision-language and vision-centric tasks within a unified end-to-end framework. You can interact with Griffon and request it to complete various tasks. The model is continuously evolving towards greater intelligence to handle more complex scenarios. Feel free to follow Griffon and reach out to us by raising an issue.
+This is the official repository for the Griffon series (v1, v2, and G) and RL training method Vision-R1. Griffon is the first high-resolution (over 1K) LVLM capable of performing fine-grained visual perception tasks, such as object detection and counting. In its latest version, Griffon integrates vision-language and vision-centric tasks within a unified end-to-end framework. You can interact with Griffon and request it to complete various tasks. The model is continuously evolving towards greater intelligence to handle more complex scenarios. Feel free to follow Griffon and reach out to us by raising an issue.
 
 ---
 
-**Griffon-G: Bridging Vision-Language and Vision-Centric Tasks via Large Multimodal Models（Latest）**
+Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning
+[`📕Paper`](https://arxiv.org/abs/2503.18013) [`🌀Usage`](./Vision-R1/README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data)
 
-[`📕Paper`](https://arxiv.org/abs/2410.16163) [`🌀Usage`](./README.md) [`🤗Model(NEW)`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794)
+Griffon-G: Bridging Vision-Language and Vision-Centric Tasks via Large Multimodal Models
+
+[`📕Paper`](https://arxiv.org/abs/2410.16163) [`🌀Usage`](./README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794)
 
 Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Visual-Language Co-Referring
 
@@ -24,6 +27,7 @@ Griffon: Spelling out All Object Locations at Any Granuality with Large Language
 
 
 ## Release
+- [x] **`2025.03.25`** 🔥We release the Vision-R1 paper, evaluation codes, models, and data. Check out in the [repo](Vision-R1/README.md).
 - [x] **`2025.01.15`** 🔥Release the evaluation scripts supporting distributed inference.
 - [x] **`2024.11.26`** 🔥We are glad to release inference code and the model of Griffon-G in [`🤗Griffon-G`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794). Training codes will be released later.
 - [x] **`2024.07.01`** 🔥**Griffon has been accepted to ECCV 2024. Data is released in [`🤗HuggingFace`](https://huggingface.co/datasets/JefferyZhan/Language-prompted-Localization-Dataset)**

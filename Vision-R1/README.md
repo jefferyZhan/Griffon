@@ -59,7 +59,10 @@ Multiple datasets evaluation is supported with dataset names splited by comma.
 
 ## Main Results
 We conduct extensive experiments using two baseline models, including [Griffon-G-7B](https://arxiv.org/abs/2410.16163) and [Qwen2.5-VL-7B](https://arxiv.org/abs/2502.13923), on full object detection benchmark MSCOCO and ODINW-13. The main results posted here compare the Vision-R1 enhanced models with SOTA models and baseline models. **Vision-R1 improves the performance up to 50% and enhances the model to surpass the 72B model.** More results can be found in the paper.
-![](./figs/main_results.png)
+
+<div align=center>
+<img width="650" alt="image" src="figs/main_results.jpg">
+</div>
 
 ## Citation
 
