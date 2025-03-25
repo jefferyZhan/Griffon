@@ -13,18 +13,18 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
 ]
 dependencies = [
-    "torch==2.3.1", "torchvision==0.18.1",
+    "torch>=2.3.1", "torchvision>=0.18.1",
     "transformers>=4.45.0.dev0", "tokenizers", "sentencepiece==0.1.99", "shortuuid",
-    "accelerate", "peft", "bitsandbytes==0.41.0",
+    "accelerate", "peft", "bitsandbytes>=0.41.0",
     "pydantic==2.9.2", "markdown2[all]", "numpy", "scikit-learn==1.2.2",
     "gradio==4.40.0", "gradio_client==1.2.0",
     "requests", "httpx>=0.24.0", "uvicorn", "fastapi",
     "einops==0.6.1", "einops-exts==0.0.4", "timm==0.6.13",
-    "flash-attn==2.5.8"
+    "flash-attn>=2.5.8"
 ]
 
 [project.optional-dependencies]
-train = ["deepspeed==0.9.5", "ninja", "wandb"]
+train = ["deepspeed>=0.9.5", "ninja", "wandb"]
 
 [project.urls]
 "Bug Tracker" = "https://github.com/jefferyZhan/Griffon/issues"

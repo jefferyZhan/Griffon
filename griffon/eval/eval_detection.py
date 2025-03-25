@@ -219,7 +219,7 @@ if __name__ == "__main__":
                         output_scores=True
                     )
                 output_ids = output_dict.sequences
-                if "qwen" in args.model_path.lower() or "gemma" in args.model_path.lower():
+                if "qwen" in args.model_path.lower() or "gemma" in args.model_path.lower() or "llama" in args.model_path.lower():
                     outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0]
                     outputs = outputs.strip()
                 else:
@@ -233,6 +233,8 @@ if __name__ == "__main__":
                 try:
                     if "gemma" in args.model_path.lower():
                         probs = accum_probs(output_ids, torch.cat(output_dict.scores).softmax(-1))
+                    elif "llama2" in args.model_path.lower():
+                            probs = accum_probs(output_ids, torch.cat(output_dict.scores).softmax(-1),start_token=29987, end_token=29899)
                     else:
                         raise AssertionError
                 except:
