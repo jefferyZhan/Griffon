@@ -10,19 +10,21 @@
 
 <h1>  Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning </h1>
 
-<h5 align="center"> If you find this project useful, please give us a star🌟.
+<h5 align="center"> If you find this project useful, please give us a star🌟 by click the below star button back to the homepage.
 
 <h5 align="center"> 
 
 <a href='https://arxiv.org/abs/2503.18013'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 <a href='https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue'></a>
 <a href='https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data'><img src='https://img.shields.io/badge/Dataset-Huggingface-yellow'></a>
+[![GitHub Repo stars](https://img.shields.io/github/stars/jefferyZhan/Griffon?style=social)](https://github.com/jefferyZhan/Griffon)
 
 </h5>
 </div>
 
 ## News
-- [x] **`Mar 24, 2025.`** The training codes will be released later this week
+- [x] **`Mar 26, 2025.`** **The training codes for Qwen2.5-VL model have been released.**
+- [x] **`Mar 24, 2025.`** The training codes of both models will be released later this week
 - [x] **`Mar 24, 2025.`** We release our paper in [arxiv](https://arxiv.org/abs/2503.18013), evaluation codes, models in [huggingface](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262), and data in [huggingface](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data).
 
 ## Setup
@@ -31,6 +33,7 @@
 git clone git@github.com:jefferyZhan/Griffon.git
 # Create Env and install basic packages
 conda create -n vision-r1 python=3.11
+cd Vision-R1
 pip install -r requirements.txt
 # Install Additional modules
 pip install wandb==0.18.3
@@ -40,6 +43,24 @@ pip install flash-attn --no-build-isolation
 # Install griffon for quite evaluation
 cd ..
 pip install .
+```
+
+## Training
+Current released codes support Qwen2.5-VL models Vision-R1 training and SFT. Codes for Griffon model will be released later after reformatting and checking.
+#### 1. Vision-R1 Training
+- Download the Vision-R1-Data from the [huggingface](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data) and modify the path in the run_qwen_vision_r1.sh if you can't download the dataset directly.
+- Download the Qwen2.5-VL model from the [official repo](https://huggingface.co/collections/Qwen/qwen25-vl-6795ffac22b334a837c0f9a5).
+- Modify the wandb host, hostfile, and model path setting. The default script requires 2 nodes * 8 GPUs with a total batch size of 16. Set the gradient_accumulation_steps to 2 to reduce the GPU usage to 1 node.
+- Run the below command.
+```bash 
+bash run_qwen_vision_r1.sh 
+```
+#### 2.Supervised Fine-tuning
+- Prepare the data and model following above instructions.
+- Modify the model path in configs/qwen25vl_sft_config.yaml, and run the below command. This training requires 1 node.
+
+```bash
+accelerate launch --config_file configs/zero2.yaml configs/sft_qwen.py --config configs/qwen25vl_sft_config.yaml 
 ```
 
 

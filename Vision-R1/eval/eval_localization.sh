@@ -3,13 +3,13 @@
 ## COCO
 ### Locate every item from the category list in the image and output the coordinates in JSON format. The category set includes <category set>.
 ## ODINW or Visual Grounding
-### Locate every {} in the image and output the coordinates in JSON format.
+### Locate every <category set> in the image and output the coordinates in JSON format.
 
 # Griffon
 ## COCO
 ### Examine the image for any objects from the category set. Report the coordinates of each detected object. The category set includes <category set>.
 ## ODINW or Visual Grounding
-### Locate the exact position of {} in the picture, if possible.
+### Locate the exact position of <category set> in the picture, if possible.
 
 # InternVL
 ## ODINW or Visual Grounding
@@ -19,7 +19,7 @@
 ### What are the locations of <category set>?
 
 ###################################### INFO ####################################################
-# When evaluating the ODINW, the com and pos are required to be added to reproduce the results.
+# When evaluating the ODINW, the single and pos are required to be added to reproduce the results.
 # While for COCO evaluation, they should be removed to be false.
 ###############################################################################################
 
@@ -35,5 +35,5 @@ torchrun --nproc_per_node 8 \
         --query "Examine the image for any objects from the category set. Report the coordinates of each detected object. The category set includes <category set>." \
         --batch-size 1 \
         --dataset ${3} 
-        # --com \
+        # --single \
         # --pos \
