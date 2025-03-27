@@ -10,7 +10,7 @@
 
 <h1>  Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning </h1>
 
-<h5 align="center"> If you find this project useful, please give us a star🌟 by click the below star button back to the homepage.
+<h5 align="center"> If you find this project useful, please give us a star🌟.
 
 <h5 align="center"> 
 
