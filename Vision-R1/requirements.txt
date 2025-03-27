@@ -218,7 +218,6 @@ pytz==2025.1
 PyYAML==6.0.2
 pyzmq==26.2.1
 qwen-vl-utils==0.0.10
--e git+ssh://git@github.com/Deep-Agent/R1-V.git@b97379a10f59b12d3b5d9e63f478aa98ebf97b27#egg=r1_v&subdirectory=src/r1-v
 ray==2.42.1
 referencing==0.36.2
 regex==2024.11.6
