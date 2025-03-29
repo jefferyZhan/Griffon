@@ -60,7 +60,7 @@ bash run_qwen_vision_r1.sh
 - Modify the model path in configs/qwen25vl_sft_config.yaml, and run the below command. This training requires 1 node.
 
 ```bash
-accelerate launch --config_file configs/zero2.yaml configs/sft_qwen.py --config configs/qwen25vl_sft_config.yaml 
+accelerate launch --config_file configs/zero2.yaml vision_r1/sft_qwen.py --config configs/qwen25vl_sft_config.yaml 
 ```
 
 
