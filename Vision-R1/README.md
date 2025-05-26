@@ -23,7 +23,8 @@
 </div>
 
 ## News
-- [x] **`Mar 26, 2025.`** **The training codes for Qwen2.5-VL model have been released.**
+- [x] **`May 26, 2025.`** **Update inference code.**
+- [x] **`Mar 26, 2025.`** The training codes for Qwen2.5-VL model have been released.
 - [x] **`Mar 24, 2025.`** The training codes of both models will be released later this week
 - [x] **`Mar 24, 2025.`** We release our paper in [arxiv](https://arxiv.org/abs/2503.18013), evaluation codes, models in [huggingface](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262), and data in [huggingface](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data).
 
@@ -43,6 +44,63 @@ pip install flash-attn --no-build-isolation
 # Install griffon for quite evaluation
 cd ..
 pip install .
+```
+
+## Inference
+You can use the code below for inference. Replace the prompt and image path to yours, but remember to follow the official prompts, which we summarize below, to get the best results. Different from the official demo, the ```use_cache=True``` is necessary. If you want to visualize the result, use the inference code in the eval folder.
+```
+from transformers import Qwen2_5_VLForConditionalGeneration, AutoProcessor
+from qwen_vl_utils import process_vision_info
+model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+    "JefferyZhan/Qwen2.5-VL-7B-Instruct-Vision-R1", torch_dtype="auto", device_map="auto"
+)
+
+# default processor
+processor = AutoProcessor.from_pretrained("JefferyZhan/Qwen2.5-VL-7B-Instruct-Vision-R1",use_fast=True,min_pixels=28*28,max_pixels=12800*28*28)
+
+start_time = time.time()
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image",
+                "image": image_path, ##Replace it with your path##
+            },
+            {"type": "text", "text": "Please first output bbox coordinates and names of every item in this image in JSON format."},
+        ],
+    }
+]
+# Prompt Exmples following the offical setting and trained data
+# Please first output bbox coordinates and names of every item in this image in JSON format.
+# Outline the position of each small cake and output all the coordinates in JSON format.
+# Locate the top right brown cake, output its bbox coordinates using JSON format.
+# Locate every item from the category list in the image and output the coordinates in JSON format. The category set includes <category set,replace this with specific 80 categories for coco test without "<>">. 
+
+# Preparation for inference
+text = processor.apply_chat_template(
+    messages, tokenize=False, add_generation_prompt=True
+)
+image_inputs, video_inputs = process_vision_info(messages)
+inputs = processor(
+    text=[text],
+    images=image_inputs,
+    videos=video_inputs,
+    padding=True,
+    return_tensors="pt",
+)
+inputs = inputs.to(model.device)
+
+# Inference: Generation of the output
+generated_ids = model.generate(**inputs, use_cache=True, max_new_tokens=1024)
+generated_ids_trimmed = [
+    out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+]
+output_text = processor.batch_decode(
+    generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+)
+print(f"Inference Time: {inference_time:.4f} s\nOutput:\n")
+print(output_text[0])
 ```
 
 ## Training
