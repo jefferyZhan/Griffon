@@ -33,7 +33,6 @@ ckpts*
 *.whl
 *.pth
 *.jsonl
-*.png
 *.txt
 *.pdf
 

@@ -6,7 +6,13 @@
 
 </div>
 
-This is the official repository for the **Griffon series (v1, v2, and G) and RL training method Vision-R1**. Griffon is the first high-resolution (over 1K) LVLM capable of performing fine-grained visual perception tasks, such as object detection and counting. In its latest version, Griffon integrates vision-language and vision-centric tasks within a unified end-to-end framework. You can interact with Griffon and request it to complete various tasks. The model is continuously evolving towards greater intelligence to handle more complex scenarios. Feel free to follow Griffon and reach out to us by raising an issue.
+Welcome to the official repository of the Griffon Series — including Griffon v1, v2, G, R, and the Vision-R1 reinforcement learning framework.
+
+Griffon begins with fine-grained perception and localization, achieving state-of-the-art performance in visual grounding and referring expression comprehension (REC) — rivaling expert-level object detection models. Beyond its visual strengths, Griffon also demonstrates impressive general-purpose question answering and the ability to identify relevant regions based on a given question to perform reasoning.
+
+This repository provides everything you need to get started with Griffon models: checkpoints, datasets, usage instructions, and the latest Vision-R1 training technique — a versatile solution to boost localization capabilities across different models.
+
+Griffon is continuously evolving to tackle increasingly complex vision-language tasks. We are actively maintaining and open-sourcing our progress. Feel free to follow the project and open an issue if you have questions or feedback!
 
 ---
 
