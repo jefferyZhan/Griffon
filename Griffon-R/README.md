@@ -1,5 +1,3 @@
-![](../docs/logo.jpg)
-
 <div align="center">
 
 <h1>  Understand, Think, and Answer: Advancing Visual Reasoning with Large Multimodal Models </h1>
