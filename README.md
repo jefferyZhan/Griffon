@@ -11,7 +11,8 @@ Welcome to the official repository of the Griffon Series — including Griffon v
 ---
 Understand, Think, and Answer: Advancing Visual Reasoning with Large Multimodal Models
 
-<!-- [`📕Paper`](https://arxiv.org/abs/2503.18013) [`🌀Usage`](./Vision-R1/README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data) -->
+[`📕Paper`](https://arxiv.org/abs/2505.20753) [`🌀Usage`](./Griffon-R/README.md) 
+<!-- [`🤗Model`](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data) -->
 
 Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning
 
