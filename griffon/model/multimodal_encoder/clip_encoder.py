@@ -25,6 +25,7 @@ class CLIPVisionTower(nn.Module):
         # activate gradient checkpointing for CLIP
         self.vision_tower.gradient_checkpointing_enable()
         self.vision_tower.requires_grad_(True)
+        # When loading default to trainable
 
         self.is_loaded = True
 
@@ -38,7 +39,6 @@ class CLIPVisionTower(nn.Module):
             raise ValueError(f'Unexpected select feature: {self.select_feature}')
         return image_features
 
-    # @torch.no_grad()
     def forward(self, images):
         if type(images) is list:
             image_features = []

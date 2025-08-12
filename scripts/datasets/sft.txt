@@ -1,0 +1,16 @@
+LAZY_0 & general_instructions.json & instruct
+DET_0 & objects365_200k.jsonl & Objects365-2023/full-images
+DET_1 & coco_det.jsonl & coco/train2017
+DET_2 & v3det_det_91660.jsonl & V3DET/V3Det/
+DET_3 & vg_det_53135.jsonl & VG/VG_ALL
+REG_0 & flicks_reg_50000.jsonl & flickr30k-images
+REG_1 & osprey_reg_14667.jsonl & coco/train2014
+REG_2 & ref3_reg_143802.jsonl & coco/train2014
+REG_3 & vg_reg_91380.jsonl & VG/VG_ALL
+VG_0 & grefcoco_mulit_vg_16758.jsonl & coco/train2014
+VG_1 & grefcoco_vg_95102.jsonl & 2017/train2017
+VG_2 & refcoco_vg_143802.jsonl & coco/train2014
+VG_3 & moref_hard_vg.jsonl & VG/VG_ALL
+VG_4 & moref_vg.jsonl & VG/images
+RANDDET_1 & vg_randet_53134.jsonl & VG/VG_ALL
+RANDDET_2 & v3det_randet_91660.jsonl & V3DET/V3Det/

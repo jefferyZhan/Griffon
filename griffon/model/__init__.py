@@ -1,3 +1,4 @@
 
 from .language_model.griffon_gemma import GriffonGemma2Config, GriffonGemma2ForCausalLM
 from .language_model.griffon_llama import GriffonLlama2Config, GriffonLlama2ForCausalLM
+from .language_model.griffon_qwen import GriffonQwen25Config, GriffonQwen25ForCausalLM

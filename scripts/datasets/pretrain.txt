@@ -1,0 +1,13 @@
+DET_0 & objcets365_det.jsonl & Objects365-2023/full-images
+DET_1 & coco_det.jsonl & coco/train2017
+DET_2 & v3det_det.jsonl & V3DET/V3Det/
+DET_3 & vg_det.jsonl & VG/VG_ALL
+REG_0 & flicks_reg.jsonl & flickr30k-images
+REG_1 & osprey_reg.jsonl & coco/train2014
+REG_2 & ref3_reg.jsonl & coco/train2014
+REG_3 & vg_reg.jsonl & VG/VG_ALL
+VG_0 & grefcoco_new_vg_discrete.jsonl & coco/train2014
+VG_1 & refcoco_vg_discrete.jsonl & coco/train2014
+LAZY_7 & code_instruction_clean_78258k.json & /
+LAZY_8 & math_instruction_clean_70k_ins_70_qa.json & /
+LAZY_9 & dialog_instruction_clean_120k.json & /

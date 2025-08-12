@@ -53,6 +53,9 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
             # cfg_pretrained = AutoConfig.from_pretrained(model_path)
             model = GriffonLlama2ForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True, attn_implementation="flash_attention_2", **kwargs)
+        elif "qwen2" in model_name.lower():
+            tokenizer = AutoTokenizer.from_pretrained(model_path)
+            model = GriffonQwen25ForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True, attn_implementation="flash_attention_2", **kwargs)
     elif "llava" in model_name.lower():
         tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
         model = LlavaLlamaForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True, **kwargs)

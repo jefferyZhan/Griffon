@@ -9,37 +9,39 @@
 Welcome to the official repository of the Griffon Series — including Griffon v1, v2, G, R, and the Vision-R1 reinforcement learning framework. **Griffon begins with fine-grained perception and localization, achieving state-of-the-art performance in visual grounding and referring expression comprehension (REC) — rivaling expert-level object detection models. Beyond its visual strengths, Griffon also demonstrates impressive general-purpose question answering and the ability to identify relevant regions based on a given question to perform reasoning.** Griffon is continuously evolving to tackle increasingly complex vision-language tasks. We are actively maintaining and open-sourcing our progress. Feel free to follow the project and open an issue if you have questions or feedback!
 
 ---
-**Understand, Think, and Answer: Advancing Visual Reasoning with Large Multimodal Models**
+Understand, Think, and Answer: Advancing Visual Reasoning with Large Multimodal Models
 
 [`📕Paper`](https://arxiv.org/abs/2505.20753) [`🌀Usage`](./Griffon-R/README.md) 
 <!-- [`🤗Model`](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data) -->
 
-**Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning**
+Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning
 
 [`📕Paper`](https://arxiv.org/abs/2503.18013) [`🌀Usage`](./Vision-R1/README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data)
 
 Griffon-G: Bridging Vision-Language and Vision-Centric Tasks via Large Multimodal Models
 
-[`📕Paper`](https://arxiv.org/abs/2410.16163) [`🌀Usage`](./README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794)
+[`📕Paper`](https://arxiv.org/abs/2410.16163) [`🌀Usage`](./README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Griffon-G-CCMD-8M)
 
-Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Visual-Language Co-Referring
+Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Visual-Language Co-Referring (ICCV 2025)
 
-[`📕Paper`](https://arxiv.org/abs/2403.09333) [`🌀Intro`](./docs/README_v2.md)
+[`📕Paper`](https://arxiv.org/abs/2403.09333) [`🌀Intro`](./docs/README_v2.md) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Griffon-V2-Data)
 
-Griffon: Spelling out All Object Locations at Any Granuality with Large Language Model 
+Griffon: Spelling out All Object Locations at Any Granuality with Large Language Model (ECCV 2024)
 
 [`📕Paper`](https://arxiv.org/abs/2311.14552) [`🌀Usage`](./docs/README_v1.md) [`🤗Model`](https://huggingface.co/JefferyZhan/Griffon/tree/main)
 
 
 ## Release
-- [x] **`2025.05.27`** 🔥**We have released our paper in the arxiv, which will be available tomorrow. Data and model will be released soon.**
-- [x] **`2025.03.25`** 🔥We release the Vision-R1 paper, evaluation codes, models, and data. Check out in the [repo](Vision-R1/README.md).
-- [x] **`2025.01.15`** 🔥Release the evaluation scripts supporting distributed inference.
-- [x] **`2024.11.26`** 🔥We are glad to release inference code and the model of Griffon-G in [`🤗Griffon-G`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794). Training codes will be released later.
-- [x] **`2024.07.01`** 🔥**Griffon has been accepted to ECCV 2024. Data is released in [`🤗HuggingFace`](https://huggingface.co/datasets/JefferyZhan/Language-prompted-Localization-Dataset)**
-- [x] **`2024.03.11`** 🔥We are excited to announce the arrival of Griffon v2. Griffion v2 brings fine-grained perception performance to new heights with high-resolution expert-level detection and counting and supports visual-language co-referring. Take a look at our demo first. Paper is preprinted in [`📕Arxiv`](https://arxiv.org/abs/2403.09333).
-- [x] **`2023.12.06`** 🔥Release the Griffon v1 inference code and model in [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/Griffon/tree/main).
-- [x] **`2023.11.29`** 🔥Griffon v1 Paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2311.14552).
+- [x] **`2025.08.12`** 🔥🔥**We have release the data of [Griffon v2](https://huggingface.co/datasets/JefferyZhan/Griffon-V2-Data) and [Griffon-G](https://huggingface.co/datasets/JefferyZhan/Griffon-G-CCMD-8M) in the 🤗HuggingFace and also update the [training codes](./docs/TRAIN_README.md).**
+- [x] **`2025.08.11`** 🔥🔥**We are glad to annouce that Griffon v2 has been accepted to ICCV 2025**
+- [x] **`2025.05.27`** We have released Griffon-R in the [arxiv](https://arxiv.org/abs/2505.20753).
+- [x] **`2025.03.25`** We release the Vision-R1 paper, evaluation codes, models, and data. Check out in the [repo](Vision-R1/README.md).
+- [x] **`2025.01.15`** Release the evaluation scripts supporting distributed inference.
+- [x] **`2024.11.26`** We are glad to release inference code and the model of Griffon-G in [`🤗Griffon-G`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794). Training codes will be released later.
+- [x] **`2024.07.01`** **Griffon has been accepted to ECCV 2024. Data is released in [`🤗HuggingFace`](https://huggingface.co/datasets/JefferyZhan/Language-prompted-Localization-Dataset)**
+- [x] **`2024.03.11`** We are excited to announce the arrival of Griffon v2. Griffion v2 brings fine-grained perception performance to new heights with high-resolution expert-level detection and counting and supports visual-language co-referring. Take a look at our demo first. Paper is preprinted in [`📕Arxiv`](https://arxiv.org/abs/2403.09333).
+- [x] **`2023.12.06`** Release the Griffon v1 inference code and model in [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/Griffon/tree/main).
+- [x] **`2023.11.29`** Griffon v1 Paper has been released in [`📕Arxiv`](https://arxiv.org/abs/2311.14552).
 
 ## What can Griffon do now?
 Griffon-G demonstrates advanced performance across multimodal benchmarks, general VQAs, and text-rich VQAs, achieving new state-of-the-art results in REC and object detection.
@@ -69,28 +71,32 @@ Tips: If you encounter any errors while installing the packages, you can always 
 | clip-vit-large-path14-336_to_1022   | [`🤗HuggingFace`](https://huggingface.co/JefferyZhan/clip-vit-large-path14-336_to_1022/tree/main)    |
 ---
 
-### 3.Inference
+### 3. Training
+Please refer to the [Training README](./docs/TRAIN_README.md).
+
+---
+### 4.Inference
 
 ```shell
-# 3.1 Modify the instruction in the run_inference.sh.
+# 4.1 Modify the instruction in the run_inference.sh.
 
-# 3.2.1 DO NOT USE Visual Prompt
+# 4.2.1 DO NOT USE Visual Prompt
 bash run_inference.sh [CUDA_ID] [CHECKPOINTS_PATH] [IMAGE_PATH]
 
-# 3.2.2 USE Visual Prompt for COUNTING: Input both query image and prompt image splited with comma and specify <region> placeholder in the instruction
+# 4.2.2 USE Visual Prompt for COUNTING: Input both query image and prompt image splited with comma and specify <region> placeholder in the instruction
 bash run_inference.sh [CUDA_ID] [CHECKPOINTS_PATH] [IMAGE_PATH,PROMPT_PATH]
 ```
 Notice: Please pay attention to the singular and plural expressions of objects.
 
 ---
-### 4.Evaluation
+### 5.Evaluation
 
-**4.1 Multimodal Benchmark Evaluation**
+**5.1 Multimodal Benchmark Evaluation**
 
 Please Refer to LLaVA Evaluation or Use VLMEvalKit.
 
 
-**4.2 COCO Detection Evaluation**
+**5.2 COCO Detection Evaluation**
 
 
 ```shell
@@ -105,7 +111,7 @@ torchrun --nproc_per_node 8 --nnodes N --node_rank K --master_addr MASTER_ADDR -
 ```
 
 
-**4.3 REC Evaluation**
+**5.3 REC Evaluation**
 
 Processed RefCOCO annotation set can be downloaded from this [link](https://drive.google.com/file/d/1Yh1l-f-rLSWkAlXUkZiHmK7oUC9NCmGl/view?usp=sharing).
 

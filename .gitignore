@@ -33,7 +33,6 @@ ckpts*
 *.whl
 *.pth
 *.jsonl
-*.txt
 *.pdf
 
 #data
@@ -47,7 +46,9 @@ log_output
 eval_output
 playground
 test_images
-scripts
 tools_
 tools
 llava.egg-info
+
+scripts/llama2
+scripts/qwen25

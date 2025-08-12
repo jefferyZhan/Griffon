@@ -341,3 +341,298 @@ def accum_probs(output_ids, output_scores, start_token=200348, end_token=50648):
         min_shape = min(len(loc_probs), len(probs))
         probs_out = torch.tensor(loc_probs[:min_shape]) ** 0.5 * torch.tensor(probs[:min_shape])**0.5
     return probs_out.numpy().tolist()
+
+def reorder(cate_names, bboxes):
+    #reorder the bbox，from left to right and from top to bottom
+    bboxes = torch.tensor(bboxes)
+    bboxes_x1 = bboxes[:,0].reshape(-1)
+    idx = bboxes_x1.argsort()
+    bboxes_new = bboxes[idx]
+    # numpy for cates
+    idx = idx.numpy()
+    cate_names = np.asarray(cate_names)
+    cate_names_new = cate_names[idx]
+    return cate_names_new.tolist(), bboxes_new.tolist()
+
+def resize_box(box, size, height, width, pre=False):
+    #If pre is set to true，it represents the pre resize, directly resize the image to the short size
+    if "shortest_edge" in size:
+        size = size["shortest_edge"]
+    elif "height" in size:
+        assert size["height"] == size["width"]
+        size = size["width"]
+        pre=True #set to true as it works like out resize
+    else:
+        raise AssertionError
+    if not pre:
+        min_size = size
+        ratio = float(min_size) / min(height, width)
+        x1, y1, x2, y2 = box
+        return [x1 * ratio, y1 * ratio, x2* ratio, y2 * ratio], height*ratio, width*ratio
+    else:
+        square_size = size
+        width_ratio = float(square_size) / width
+        height_ratio = float(square_size) / height
+        if len(box) >0 and isinstance(box[0], list):
+            box = np.asarray(box)
+            box[:, ::2] = box[:, ::2] * width_ratio
+            box[:, 1::2] = box[:, 1::2] * height_ratio
+            return box.tolist(), height*height_ratio, width*width_ratio
+        elif len(box) == 4 and (isinstance(box[0], int) or isinstance(box[0], float)):
+            x1, y1, x2, y2 = box
+            #assert int(np.ceil(height*height_ratio)) == square_size and int(np.ceil(width*width_ratio)) == square_size, f"{height}, {height_ratio}, {width}, {width_ratio}, {square_size}"
+            return [x1 * width_ratio, y1 * height_ratio, x2* width_ratio, y2 * height_ratio], height*height_ratio, width*width_ratio
+        else:
+            raise AssertionError
+
+def center_crop_box(box, crop_size, height, width):
+    x_minus = (width - crop_size["width"]) // 2
+    y_minus = (height - crop_size["height"]) // 2
+    x1, y1, x2, y2 = box
+    x1 = min(max(x1 - x_minus, 0), crop_size["width"])
+    y1 = min(max(y1 - y_minus, 0), crop_size["height"])
+    x2 = min(max(x2 - x_minus, 0), crop_size["width"])
+    y2 = min(max(y2 - y_minus, 0), crop_size["height"])
+    return [x1, y1, x2, y2], crop_size["height"], crop_size["width"]
+
+def merge_strings(strings):
+    merged_dict = {}
+    
+    for string in strings:
+        prefix, suffix = string.split('-', 1)
+        if prefix in merged_dict:
+            current_suffix = merged_dict[prefix]
+            if len(suffix) > len(current_suffix):
+                merged_dict[prefix] = suffix
+        else:
+            merged_dict[prefix] = suffix
+    
+    merged_strings = [prefix + '-' + suffix for prefix, suffix in merged_dict.items()]
+    return merged_strings
+
+def replace_special_chars(input_string):
+    pattern = r"<bin_(\d{1,4})>"
+    replacement = r"<NUM>"
+    numbers = []  # store the number
+    count = 0  # store the time for replacement
+    def replace_func(match):
+        nonlocal count
+        count += 1
+        numbers.append(int(match.group(1))/1000)  # add the matched number to the set and resize it to 0-1
+        return replacement
+
+    output_string = re.sub(pattern, replace_func, input_string)
+
+    return output_string, numbers
+
+class BoxFormatter:
+    def __init__(self, preprocessor, bboxes_token=DEFAULT_BOXES_PLACEHOLDER, **kwargs):
+        self.bboxes_token = bboxes_token
+        # normally the bboxes_token_pat is the same as bboxes_token if u not use some weird token
+        self.bboxes_token_pat = re.compile(bboxes_token)
+        self.preprocessor = preprocessor
+        self.do_resize = getattr(self.preprocessor, "do_resize", False)
+        if self.do_resize:
+            self.size = self.preprocessor.size
+        else:
+            self.size = None
+        self.do_center_crop = getattr(self.preprocessor, "do_center_crop", False)
+        if self.do_center_crop:
+            self.crop_size = getattr(self.preprocessor, "crop_size", False)
+        else:
+            self.crop_size = None
+
+    def __call__(self, sentence: str, bboxes_seq, height, width) -> str:
+        all_box = self.bboxes_token_pat.findall(sentence)
+        assert len(all_box) == len(bboxes_seq), f"not match. sentence: {sentence}. boxes:{bboxes_seq}"
+        if len(all_box) == 0:
+            return sentence
+        bboxes_strs = [self.format_box(self.bbox_processor(height, width, bboxes)) for bboxes in bboxes_seq]
+        converted = sentence.replace(self.bboxes_token, '{}').format(*bboxes_strs)
+        return converted
+
+    def format_box(self, bboxes: Boxes) -> str:
+        raise NotImplementedError
+
+    def extract(self, string: str) -> List[Boxes]:
+        raise NotImplementedError
+    
+    def bbox_processor(self, org_height, org_width, bboxes, pattern=0):
+        #Pattern
+        #0:xyxy
+        #1:cwcywh
+        new_bboxes = []
+        for box in bboxes:
+            # for a new box, the height and width should be reset to original one
+            if self.do_resize:
+                box, height, width = resize_box(box, self.size, org_height, org_width)
+            else:
+                box = box
+                height = org_height
+                width = org_width
+            if self.do_center_crop:
+                box, height, width = center_crop_box(box, self.crop_size, height, width)
+            else:
+                box = box
+                height = height
+                width = width
+            box = norm_box_xyxy(box, w=width, h=height)
+            if pattern != 0:
+                if pattern == 1:
+                    box = xyxy2cxcywh(box)[0]
+            new_bboxes.append(box)
+        return new_bboxes
+    
+class TextBoxFormatter(BoxFormatter):
+    def __init__(self, *args, precision=3, use_small_brackets=False, box_split_placeholder=BOX_SPLIT_PLACEHOLDER, **kwargs):
+        super().__init__(*args, **kwargs)
+    
+        self.precision = precision
+        self.use_small_brackets = use_small_brackets
+        middle_brackets_pat = re.compile("(\[\d{1,}\.\d{3},\d{1,}\.\d{3},\d{1,}\.\d{3},\d{1,}\.\d{3}\])")
+
+        small_brackets_pat = re.compile("(\(\d{1,}\.\d{3},\d{1,}\.\d{3},\d{1,}\.\d{3},\d{1,}\.\d{3}\))")
+        self.pat = small_brackets_pat if use_small_brackets else middle_brackets_pat
+        self.box_split_placeholder = box_split_placeholder
+        self.box_pattern = kwargs.pop("box_pattern", 0) # default to 0: xyxy, could be set to 1:cxcywh
+        self.task_pattern = kwargs.pop("task_pattern", 0)# default to 0: generate box, could be set to 1: generate caption
+
+    def __call__(self, sentence: str, bboxes_seq, height, width) -> str:
+        # bboxes_seq: [([cls,...],[[x1,y1, x2, y2],...]), ...]
+        # each item in bboxes_seq means the whole cls-box paris in one image
+        # the number of <boxes> must match the number of bboxes
+        all_box = self.bboxes_token_pat.findall(sentence)
+        assert len(all_box) == len(bboxes_seq), f"not match. sentence: {sentence}. boxes:{bboxes_seq}"
+        if len(all_box) == 0:
+            return sentence
+        bboxes_strs = [self.format_box(clses, self.bbox_processor(height, width, bboxes, self.box_pattern), self.task_pattern) for clses, bboxes in bboxes_seq]
+        converted = sentence.replace(self.bboxes_token, '{}').format(*bboxes_strs)
+        return converted
+    
+    def format_box(self, clses, bboxes: Boxes, task_pattern=0) -> str:
+        per_box_seq = []
+        assert len(clses) == len(bboxes), f"The number of classes and boxes should match each other. But now len of classes is {len(clses)}, and len of boxes is {len(bboxes)}"
+        for cls, box in zip(clses, bboxes):
+            # Remove edge box
+            if (box[0] == 0 and box[2] == 0) or (box[0] == 1 and box[2] == 1):
+                continue
+            elif (box[1] == 0 and box[3] == 0) or (box[1] == 1 and box[3] == 1):
+                continue
+            box_seq = ','.join([f"{elem:.{self.precision}f}" for elem in box])
+            if self.use_small_brackets:
+                box_seq = "(" + box_seq + ")"
+            else:
+                box_seq = "[" + box_seq + "]"
+            if task_pattern == 0:
+                full_seq = cls + "-" + box_seq 
+            else:
+                full_seq = box_seq
+            per_box_seq.append(full_seq)
+
+        if len(per_box_seq) == 0:
+            return ['None']
+        else:
+            return self.box_split_placeholder.join(per_box_seq)
+
+
+    def extract(self, string: str):
+        # input: string above
+        # output: [{"category_name": cls, "bbox": bbox}]
+        output = []
+        # This version we first 
+        box_strings = string.strip().split(self.box_split_placeholder)
+        box_strings = [item for item in box_strings if len(self.pat.findall(item))]
+        for b_str in box_strings:
+            if "-" in b_str:
+                if b_str.count("-") > 1:
+                    if "<DIS>" in b_str:
+                        cls, bbox_str, region = b_str.split("-")
+                    else:
+                        cls, bbox_str  = b_str.split("-")[-2:]
+                        region = None
+                else:
+                    cls, bbox_str  = b_str.split("-")
+                    region = None
+            else: # To support situation when category name is removed
+                cls = "target"
+                bbox_str = self.pat.findall(b_str)[0]
+                region = None
+            bbox_str = bbox_str.replace("(", "").replace(")", "").replace("[", "").replace("]", "")
+            bbox = [item for item in map(float, bbox_str.split(','))]
+            if self.box_pattern == 1:
+                bbox = cxcywh2xyxy(bbox)[0]
+            # check box consistency
+            if bbox[2] < bbox[0] or bbox[3] < bbox[1]:
+                continue
+            ins = {
+                "category_name": cls,
+                "bbox": bbox,
+                "discrete_region": region
+            }
+            output.append(ins)
+        return output
+
+class BinBoxFormatter(BoxFormatter):
+    def __init__(self, *args, precision=3, box_split_placeholder=BOX_SPLIT_PLACEHOLDER, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.pat = re.compile("<bin_\d*?>(?:<bin_\d*?>){3}(?:\&<bin_\d*?>(?:<bin_\d*?>){3})*")
+        self.num_bins = 10 ** precision + 1
+        self.box_split_placeholder = BOX_SPLIT_PLACEHOLDER
+        self.precision = precision
+        self.box_pattern = kwargs.pop("box_pattern", 0)
+
+    def __call__(self, sentence, bboxes_seq, height, width):
+        all_box = self.bboxes_token_pat.findall(sentence)
+        assert len(all_box) == len(bboxes_seq), f"not match. sentence: {sentence}. boxes:{bboxes_seq}"
+        if len(all_box) == 0:
+            return sentence
+        bboxes_strs = [self.format_box(clses, self.bbox_processor(height, width, bboxes, self.box_pattern)) for clses, bboxes in bboxes_seq]
+        converted = sentence.replace(self.bboxes_token, '{}').format(*bboxes_strs)
+        return converted
+    
+    def format_box(self, clses, bboxes):
+        per_box_seq = []
+        assert len(clses) == len(bboxes), f"The number of classes {len(clses)} and boxes {len(bboxes)} should match each other."
+        for cls, box in zip(clses, bboxes):
+            #remove edge boxes
+            if (box[0] == 0 and box[2] == 0) or (box[0] == 1 and box[2] == 1):
+                continue
+            elif (box[1] == 0 and box[3] == 0) or (box[1] == 1 and box[3] == 1):
+                continue
+            x0, y0, x1, y1 = box
+            quant_x0 = f"<bin_{x0*1000:.{0}f}>"
+            quant_y0 = f"<bin_{y0*1000:.{0}f}>"
+            quant_x1 = f"<bin_{x1*1000:.{0}f}>"
+            quant_y1 = f"<bin_{y1*1000:.{0}f}>"
+            box_seq = cls+"-"+f"{quant_x0}{quant_y0}{quant_x1}{quant_y1}"
+            per_box_seq.append(box_seq)
+        if len(per_box_seq) == 0:
+            return ["None"]
+        else:
+            return self.box_split_placeholder.join(per_box_seq)
+    
+    def extract(self, string: str):
+        output = []
+        box_strings = string.strip().split(self.box_split_placeholder)
+        box_strings = [item for item in box_strings if len(self.pat.findall(item.replace(" ", "")))]
+        for b_str in box_strings:
+            if "-" in b_str:
+                if b_str.count("-") > 1:
+                    cls, bbox_str  = b_str.split("-")[-2:]
+                else:
+                    cls, bbox_str  = b_str.split("-")
+            else: # To support situation when category name is removed
+                cls = "target"
+                bbox_str = b_str
+            #process bin locations
+            elems = list(map(int, re.findall(r"<bin_(\d*?)>", bbox_str)))
+            bbox = [elem/(10**self.precision) for elem in elems]
+            if self.box_pattern == 1:
+                bbox = cxcywh2xyxy(bbox)[0]
+            ins = {
+                "category_name": cls,
+                "bbox": bbox
+            }
+            output.append(ins)
+        return output
