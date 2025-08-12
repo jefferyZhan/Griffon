@@ -32,7 +32,7 @@ Welcome to the official repository of the Griffon Series — including Griffon v
 
 
 ## Release
-- [x] **`2025.08.12`** 🔥🔥**We have release the data of [Griffon v2](https://huggingface.co/datasets/JefferyZhan/Griffon-V2-Data) and [Griffon-G](https://huggingface.co/datasets/JefferyZhan/Griffon-G-CCMD-8M) in the 🤗HuggingFace and also update the [training codes](./docs/TRAIN_README.md).**
+- [x] **`2025.08.12`** 🔥🔥**We have release the data of [Griffon v2](https://huggingface.co/datasets/JefferyZhan/Griffon-V2-Data) and [Griffon-G](https://huggingface.co/datasets/JefferyZhan/Griffon-G-CCMD-8M) in the 🤗HuggingFace and also update the [training codes](./docs/TRAIN_README.md). For any potential bugs or improvements, feel free to submit a pull request.**
 - [x] **`2025.08.11`** 🔥🔥**We are glad to annouce that Griffon v2 has been accepted to ICCV 2025**
 - [x] **`2025.05.27`** We have released Griffon-R in the [arxiv](https://arxiv.org/abs/2505.20753).
 - [x] **`2025.03.25`** We release the Vision-R1 paper, evaluation codes, models, and data. Check out in the [repo](Vision-R1/README.md).
