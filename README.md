@@ -20,11 +20,11 @@ Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vis
 
 Griffon-G: Bridging Vision-Language and Vision-Centric Tasks via Large Multimodal Models
 
-[`📕Paper`](https://arxiv.org/abs/2410.16163) [`🌀Usage`](./README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Griffon-G-CCMD-8M)
+[`📕Paper`](https://arxiv.org/abs/2410.16163) [`🌀Usage`](./README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794) [`🤗Data🔥`](https://huggingface.co/datasets/JefferyZhan/Griffon-G-CCMD-8M)
 
 Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Visual-Language Co-Referring (ICCV 2025)
 
-[`📕Paper`](https://arxiv.org/abs/2403.09333) [`🌀Intro`](./docs/README_v2.md) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Griffon-V2-Data)
+[`📕Paper`](https://arxiv.org/abs/2403.09333) [`🌀Intro`](./docs/README_v2.md) [`🤗Data🔥`](https://huggingface.co/datasets/JefferyZhan/Griffon-V2-Data)
 
 Griffon: Spelling out All Object Locations at Any Granuality with Large Language Model (ECCV 2024)
 
