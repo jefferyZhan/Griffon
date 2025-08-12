@@ -9,24 +9,24 @@
 Welcome to the official repository of the Griffon Series — including Griffon v1, v2, G, R, and the Vision-R1 reinforcement learning framework. **Griffon begins with fine-grained perception and localization, achieving state-of-the-art performance in visual grounding and referring expression comprehension (REC) — rivaling expert-level object detection models. Beyond its visual strengths, Griffon also demonstrates impressive general-purpose question answering and the ability to identify relevant regions based on a given question to perform reasoning.** Griffon is continuously evolving to tackle increasingly complex vision-language tasks. We are actively maintaining and open-sourcing our progress. Feel free to follow the project and open an issue if you have questions or feedback!
 
 ---
-Understand, Think, and Answer: Advancing Visual Reasoning with Large Multimodal Models
+***Understand, Think, and Answer: Advancing Visual Reasoning with Large Multimodal Models***
 
 [`📕Paper`](https://arxiv.org/abs/2505.20753) [`🌀Usage`](./Griffon-R/README.md) 
 <!-- [`🤗Model`](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data) -->
 
-Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning
+***Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning***
 
 [`📕Paper`](https://arxiv.org/abs/2503.18013) [`🌀Usage`](./Vision-R1/README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data)
 
-Griffon-G: Bridging Vision-Language and Vision-Centric Tasks via Large Multimodal Models
+***Griffon-G: Bridging Vision-Language and Vision-Centric Tasks via Large Multimodal Models***
 
 [`📕Paper`](https://arxiv.org/abs/2410.16163) [`🌀Usage`](./README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/griffon-g-6729d8d65cd58b3f40e87794) [`🤗Data🔥`](https://huggingface.co/datasets/JefferyZhan/Griffon-G-CCMD-8M)
 
-Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Visual-Language Co-Referring (ICCV 2025)
+***Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Visual-Language Co-Referring (ICCV 2025)***
 
 [`📕Paper`](https://arxiv.org/abs/2403.09333) [`🌀Intro`](./docs/README_v2.md) [`🤗Data🔥`](https://huggingface.co/datasets/JefferyZhan/Griffon-V2-Data)
 
-Griffon: Spelling out All Object Locations at Any Granuality with Large Language Model (ECCV 2024)
+***Griffon: Spelling out All Object Locations at Any Granuality with Large Language Model (ECCV 2024)***
 
 [`📕Paper`](https://arxiv.org/abs/2311.14552) [`🌀Usage`](./docs/README_v1.md) [`🤗Model`](https://huggingface.co/JefferyZhan/Griffon/tree/main)
 
