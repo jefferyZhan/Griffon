@@ -14,7 +14,7 @@ Welcome to the official repository of the Griffon Series — including Griffon v
 [`📕Paper`](https://arxiv.org/abs/2505.20753) [`🌀Usage`](./Griffon-R/README.md) 
 <!-- [`🤗Model`](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data) -->
 
-***Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning***
+***Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning (CVPR 2026)***
 
 [`📕Paper`](https://arxiv.org/abs/2503.18013) [`🌀Usage`](./Vision-R1/README.md) [`🤗Model`](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262) [`🤗Data`](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data)
 
@@ -32,8 +32,9 @@ Welcome to the official repository of the Griffon Series — including Griffon v
 
 
 ## Release
+- [x] **`2026.04.17`** 🔥🔥**We are glad to annouce that Vision-R1 has been accepted to CVPR 2026. Also, we'd like to update to support Qwen3-VL training with [EasyR1](https://github.com/hiyouga/EasyR1)**.
 - [x] **`2025.08.12`** 🔥🔥**We have released the data of [Griffon v2](https://huggingface.co/datasets/JefferyZhan/Griffon-V2-Data) and [Griffon-G](https://huggingface.co/datasets/JefferyZhan/Griffon-G-CCMD-8M) in the 🤗HuggingFace and also updated the [training codes](./docs/TRAIN_README.md). For any potential bugs or improvements, feel free to submit a pull request.**
-- [x] **`2025.08.11`** 🔥🔥**We are glad to annouce that Griffon v2 has been accepted to ICCV 2025.**
+- [x] **`2025.08.11`** We are glad to annouce that Griffon v2 has been accepted to ICCV 2025.
 - [x] **`2025.05.27`** We have released Griffon-R in the [arxiv](https://arxiv.org/abs/2505.20753).
 - [x] **`2025.03.25`** We release the Vision-R1 paper, evaluation codes, models, and data. Check out in the [repo](Vision-R1/README.md).
 - [x] **`2025.01.15`** Release the evaluation scripts supporting distributed inference.
@@ -48,7 +49,10 @@ Griffon-G demonstrates advanced performance across multimodal benchmarks, genera
  **More quantitative evaluation results can be found in our paper.**
 ![](./docs/griffon-g.jpg)
 
-## Get Started
+## Get Started with Griffon
+
+> 💡 **Looking for Vision-R1?** 
+> If you are here for the RL training on Qwen3-VL/Qwen2.5-VL, please navigate to the [Vision-R1 Directory](./Vision-R1/README.md) after cloning this repository.
 
 ### 1.Clone & Install
 
@@ -146,13 +150,12 @@ If you find Griffon useful for your research and applications, please cite using
   organization={Springer}
 }
 
-@misc{zhan2024griffonv2,
-      title={Griffon v2: Advancing Multimodal Perception with High-Resolution Scaling and Visual-Language Co-Referring}, 
-      author={Yufei Zhan and Yousong Zhu and Hongyin Zhao and Fan Yang and Ming Tang and Jinqiao Wang},
-      year={2024},
-      eprint={2403.09333},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{zhan2025griffon,
+  title={Griffon v2: Advancing multimodal perception with high-resolution scaling and visual-language co-referring},
+  author={Zhan, Yufei and Zheng, Shurong and Zhu, Yousong and Zhao, Hongyin and Yang, Fan and Tang, Ming and Wang, Jinqiao},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={22947--22957},
+  year={2025}
 }
 
 @article{zhan2024griffon-G,
@@ -160,6 +163,23 @@ If you find Griffon useful for your research and applications, please cite using
   author={Zhan, Yufei and Zhao, Hongyin and Zhu, Yousong and Yang, Fan and Tang, Ming and Wang, Jinqiao},
   journal={arXiv preprint arXiv:2410.16163},
   year={2024}
+}
+
+@article{zhan2025understand,
+  title={Understand, Think, and Answer: Advancing Visual Reasoning with Large Multimodal Models},
+  author={Zhan, Yufei and Zhao, Hongyin and Zhu, Yousong and Zheng, Shurong and Yang, Fan and Tang, Ming and Wang, Jinqiao},
+  journal={arXiv preprint arXiv:2505.20753},
+  year={2025}
+}
+
+@misc{zhan2025visionr1evolvinghumanfreealignment,
+      title={Vision-R1: Evolving Human-Free Alignment in Large Vision-Language Models via Vision-Guided Reinforcement Learning}, 
+      author={Yufei Zhan and Yousong Zhu and Shurong Zheng and Hongyin Zhao and Fan Yang and Ming Tang and Jinqiao Wang},
+      year={2025},
+      eprint={2503.18013},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.18013}, 
 }
 ```
 

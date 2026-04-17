@@ -1,0 +1,105 @@
+data:
+  train_files: JefferyZhan/Vision-R1-Data@train
+  val_files: JefferyZhan/Vision-R1-Data@train
+  prompt_key: problem
+  answer_key: solution
+  image_key: image
+  video_key: videos
+  image_dir: null
+  video_fps: 2.0
+  max_prompt_length: 12800
+  max_response_length: 4096
+  rollout_batch_size: 64  # equivalent to verl's data.train_batch_size
+  mini_rollout_batch_size: null  # equivalent to verl's data.gen_batch_size
+  val_batch_size: 1024
+  override_chat_template: null
+  shuffle: true
+  seed: 1
+  min_pixels: 262144
+  max_pixels: 4194304
+  filter_overlong_prompts: false
+
+algorithm:
+  adv_estimator: grpo
+  disable_kl: false
+  use_kl_loss: true
+  kl_penalty: low_var_kl
+  kl_coef: 1.0e-2
+  online_filtering: false  # dapo filter groups
+  filter_key: overall
+  filter_low: 0.01
+  filter_high: 0.99
+
+worker:
+  actor:
+    global_batch_size: 64  # equivalent to verl's actor.ppo_mini_batch_size
+    micro_batch_size_per_device_for_update: 1  # equivalent to verl's actor.ppo_micro_batch_size_per_gpu
+    micro_batch_size_per_device_for_experience: 1  # equivalent to verl's rollout.log_prob_micro_batch_size_per_gpu
+    max_grad_norm: 1.0
+    padding_free: true
+    dynamic_batching: true
+    ulysses_size: 1
+    model:
+      model_path: Qwen/Qwen3-VL-8B-Instruct
+      enable_gradient_checkpointing: true
+      trust_remote_code: false
+      freeze_vision_tower: false
+    optim:
+      lr: 1.0e-6
+      weight_decay: 1.0e-2
+      strategy: adamw  # {adamw, adamw_bf16}
+      lr_warmup_ratio: 0.0
+    fsdp:
+      enable_full_shard: true
+      enable_cpu_offload: false
+      enable_rank0_init: true
+    offload:
+      offload_params: true  # true: more CPU memory; false: more GPU memory
+      offload_optimizer: true  # true: more CPU memory; false: more GPU memory
+
+  rollout:
+    n: 8
+    temperature: 1.0
+    top_p: 1.0
+    limit_images: 0
+    gpu_memory_utilization: 0.6
+    enforce_eager: false
+    enable_chunked_prefill: false
+    tensor_parallel_size: 2
+    disable_tqdm: false
+    max_num_batched_tokens: 17000
+    val_override_config:
+      temperature: 0.6
+      top_p: 0.95
+      n: 1
+
+  ref:
+    fsdp:
+      enable_full_shard: true
+      enable_cpu_offload: true  # true: more CPU memory; false: more GPU memory
+      enable_rank0_init: true
+    offload:
+      offload_params: false
+
+  reward:
+    reward_function: ./examples/reward_function/visionr1.py:compute_score
+
+trainer:
+  total_epochs: 30
+  max_steps: null
+  project_name: Vision-R1
+  experiment_name: vision_r1_qwen3vl_8b
+  logger: ["file", "wandb"]
+  nnodes: 1
+  n_gpus_per_node: 8
+  max_try_make_batch: 20  # -1 means no limit
+  val_freq: -1  # -1 to disable
+  val_before_train: false
+  val_only: false
+  val_generations_to_log: 3
+  save_freq: 10  # -1 to disable
+  save_limit: -1  # -1 to disable
+  save_model_only: false
+  save_checkpoint_path: ./checkpoints/Qwen3-VL-8B-Instruct-Vision-R1
+  load_checkpoint_path: null
+  find_last_checkpoint: true

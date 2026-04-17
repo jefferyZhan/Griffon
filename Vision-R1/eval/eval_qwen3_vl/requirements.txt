@@ -1,0 +1,15 @@
+vllm
+transformers
+qwen_vl_utils
+pandas
+numpy
+Pillow
+tqdm
+requests
+validators
+torch
+torchvision
+accelerate
+pycocotools
+tabulate
+flash_attn

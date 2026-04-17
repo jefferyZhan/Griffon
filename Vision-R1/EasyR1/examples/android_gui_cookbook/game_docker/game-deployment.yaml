@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    k8s-app: number-game
+    qcloud-app: number-game
+  name: number-game
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: number-game
+      qcloud-app: number-game
+  template:
+    metadata:
+      labels:
+        k8s-app: number-game
+        qcloud-app: number-game
+    spec:
+      containers:
+      - image: ccr.ccs.tencentyun.com/yuehuazhang/number-game-rl:v1.4
+        imagePullPolicy: IfNotPresent
+        name: number-game
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "2"
+            memory: 4Gi
+          requests:
+            cpu: "2"
+            memory: 4Gi

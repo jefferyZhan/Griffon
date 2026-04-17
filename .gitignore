@@ -52,3 +52,5 @@ llava.egg-info
 
 scripts/llama2
 scripts/qwen25
+
+demo/demo*

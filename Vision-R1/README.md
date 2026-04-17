@@ -23,10 +23,15 @@
 </div>
 
 ## News
-- [x] **`May 26, 2025.`** **Update inference code.**
+- [x] **`Apr 17, 2026.`** **Glad to share that Vision-R1 has been accepted to CVPR 2026. Update to support Qwen3-VL and corresponding evaluation codes based on offical Qwen3-VL with detailed steps. Check-out [**Vision-R1-Qwen3-VL-README**](./EasyR1/Vision-R1-Qwen3-VL-README.md).**
+- [x] **`May 26, 2025.`** Update inference code.
 - [x] **`Mar 26, 2025.`** The training codes for Qwen2.5-VL model have been released.
 - [x] **`Mar 24, 2025.`** The training codes of both models will be released later this week
 - [x] **`Mar 24, 2025.`** We release our paper in [arxiv](https://arxiv.org/abs/2503.18013), evaluation codes, models in [huggingface](https://huggingface.co/collections/JefferyZhan/vision-r1-67e166f8b6a9ec3f6a664262), and data in [huggingface](https://huggingface.co/datasets/JefferyZhan/Vision-R1-Data).
+
+## 🧭 Navigation
+- **[Vision-R1 for Qwen3-VL (with EasyR1)](./EasyR1/Vision-R1-Qwen3-VL-README.md)** 👈 *Recommended! Latest update.*
+- **Vision-R1 for Qwen2.5-VL & Griffon-G** (Current Page)
 
 ## Setup
 ```bash
@@ -162,3 +167,4 @@ If you find our repository useful, please star this repo and cite our paper.
 Our work is primarily based on the following codebases. We are sincerely grateful for their work.
 - [R1-V](https://github.com/Deep-Agent/R1-V): We develop our project based on R1-V codes.
 - [VLMEvalKit](https://github.com/open-compass/VLMEvalKit): We use VLMEvalKit for evaluation in our paper.
+- [EasyR1](https://github.com/hiyouga/EasyR1): We support the Qwen3-VL training with EasyR1.
